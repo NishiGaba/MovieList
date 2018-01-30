@@ -9,12 +9,14 @@ var Movie = require('../../models/movie');
 // let GET     = require('./GET');
 // let PUT 	= require('./PUT');
 // let DELETE 	= require('./DELETE');
+console.log('it comes here');
 
 router.get('/', function(req,res) {
 	res.send('Movie get!!!');
 	Movie.find(function(err,movies) {
-		res.json(movies);
-	})
+		console.log(movies);
+		
+	});
 }); 
 
 router.post('/', function(req,res) {
