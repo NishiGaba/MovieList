@@ -26,6 +26,18 @@ var movieRoute = require('./routes/movie');
 app.use('/movie',movieRoute);
 
 /* ***************************************************************** */
+mongoose.connect('mongodb://localhost:27017/movielist');
+
+//on connection
+mongoose.connection.on('connected',()=> {
+	console.log('Connected to Local Database');
+});
+
+mongoose.connection.on('error',(err)=> {
+	if(err) {
+		console.log('Error in Database connection '+ err);
+	}
+});
 
 //testing server
 app.get('/',(req,res)=>{
