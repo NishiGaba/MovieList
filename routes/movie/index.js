@@ -3,18 +3,33 @@
 */
 let express = require('express');
 let router  = express.Router( {mergeParams : true} );
+var Movie = require('../../models/movie');
 
-let POST    = require('./POST');
-let GET     = require('./GET');
-let PUT 	= require('./PUT');
-let DELETE 	= require('./DELETE');
+// let POST    = require('./POST');
+// let GET     = require('./GET');
+// let PUT 	= require('./PUT');
+// let DELETE 	= require('./DELETE');
 
-// router.post('/', POST.add_movie) 
-	
-// 	.get('/', GET.get_movie) 
+router.get('/', function(req,res) {
+	res.send('Movie get!!!');
+}); 
 
-// 	.put('/:m_id', PUT.update_movie)
+router.post('/', function(req,res) {
+	res.send('Movie post!!!');
+}); 
 
-// 	.delete("/:m_id", DELETE.delete_movie);	
+router.put('/:m_id', function(req,res) {
+	res.send('Movie put!!!');
+}); 
+
+router.delete('/:m_id', function(req,res) {
+	res.send('Movie get!!!');
+}); 
+
+	// .post('/', POST.add_movie) 
+
+	// .put('/:m_id', PUT.update_movie)
+
+	// .delete("/:m_id", DELETE.delete_movie);	
 
 module.exports = router;
