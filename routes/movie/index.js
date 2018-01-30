@@ -12,10 +12,27 @@ var Movie = require('../../models/movie');
 
 router.get('/', function(req,res) {
 	res.send('Movie get!!!');
+	Movie.find(function(err,movies) {
+		res.json(movies);
+	})
 }); 
 
 router.post('/', function(req,res) {
 	res.send('Movie post!!!');
+
+	let newMovie = new Movie({
+		title : req.body.title,
+		director : req.body.director,
+		genre : req.body.genre
+	});
+
+	newMovie.save((err,movie)=> {
+		if(err) {
+			res.json({msg: 'Failed to add movie'});
+		} else {
+			res.json({msg: 'Movie Added Successfully'});
+		}
+	})
 }); 
 
 router.put('/:m_id', function(req,res) {
@@ -23,7 +40,15 @@ router.put('/:m_id', function(req,res) {
 }); 
 
 router.delete('/:m_id', function(req,res) {
-	res.send('Movie get!!!');
+	res.send('Movie delete!!!');
+
+	Movie.remove({id: req.params.id},function(err,result) {
+		if(err) {
+			res.json(err);
+		} else {
+			res.json(result);
+		}
+	});
 }); 
 
 	// .post('/', POST.add_movie) 
