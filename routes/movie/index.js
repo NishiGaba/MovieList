@@ -12,10 +12,9 @@ var Movie = require('../../models/movie');
 console.log('it comes here');
 
 router.get('/', function(req,res) {
-	res.send('Movie get!!!');
 	Movie.find(function(err,movies) {
 		console.log(movies);
-		
+		res.send(movies);
 	});
 }); 
 
