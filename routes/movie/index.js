@@ -19,8 +19,8 @@ router.get('/', function(req,res) {
 }); 
 
 router.post('/', function(req,res) {
-	res.send('Movie post!!!');
-
+	// res.send('Movie post!!!');
+	console.log(req.body);
 	let newMovie = new Movie({
 		title : req.body.title,
 		director : req.body.director,
