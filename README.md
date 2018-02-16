@@ -1,2 +1,0 @@
-# MovieList
-Astonishing Movies Memoranda 
